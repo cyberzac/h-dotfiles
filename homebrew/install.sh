@@ -13,7 +13,7 @@ then
   exit
 fi
 
-packages=<<EOF 
+read -d '' packages <<EOF 
 grc 
 coreutils
 spark
@@ -36,8 +36,7 @@ node
 qt
 pyqt
 gettext
-heroku
-toolbelt
+heroku-toolbelt
 protobuf
 netcat
 EOF
