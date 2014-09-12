@@ -1,19 +1,20 @@
 # Functions to help us manage paths.  Second argument is the name of the
-# path variable to be modified (default: PATH)
+# path variable to be modified (default: path)
 
 pathremove () {
-    local PATHVARIABLE=${2:-path}
-    export $PATHVARIABLE=("${(@)PATHVARIABLE:#$1}")
+    for (( i=1 ; i <= $#path ; i++ )) do
+       if [[ $path[i] == "$1" ]] then 
+	   path[i]=() 
+       fi
+    done 
 }
 
 pathprepend () {
-    local PATHVARIABLE=${2:-path}
-    pathremove $1 $PATHVARIABLE
-    export $PATHVARIABLE="$1 ${(@)PATHVARIABLE}"
+    pathremove $1
+    path=($1 $path)
 }
 
 pathappend () {
-    local PATHVARIABLE=${2:-path}
-    pathremove $1 $PATHVARIABLE
-    export $PATHVARIABLE="(${(@)PATHVARIABLE} $1)"
+    pathremove $1
+    path+=($1)
 }
