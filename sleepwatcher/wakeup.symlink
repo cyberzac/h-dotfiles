@@ -1,0 +1,4 @@
+#
+# Sync time for boot2docker
+/usr/local/bin/boot2docker ssh sudo ntpclient -s -h pool.ntp.org
+
