@@ -14,31 +14,35 @@ then
 fi
 
 read -d '' packages <<EOF 
-grc 
-coreutils
-spark
-maven
-nmap
-scala
-sbt
-git
-tomcat
+ansible
 blueutil
+boot2docker
+coreutils
+docker
+docker-completion
+gettext
+git
 giter8
 graphviz
-subversion
+grc 
+heroku-toolbelt
+jq
+maven
+netcat
+nmap
+node
+protobuf
+pyqt
 python
 python3
-wget
-sleepwatcher
-jq
-node
 qt
-pyqt
-gettext
-heroku-toolbelt
-protobuf
-netcat
+sbt
+scala
+sleepwatcher
+spark
+subversion
+tomcat
+wget
 EOF
 # Install homebrew packages
 brew install $packages
