@@ -34,16 +34,32 @@
 (set-foreground-color "white")
 (set-cursor-color "red")
 
+
+;;
+;; Copy shell
+;;
+
+(when (memq window-system '(mac ns))
+     (load "~/.emacs.d/exec-path-from-shell.el")
+     (require 'exec-path-from-shell) ;; if not using the ELPA package
+     (exec-path-from-shell-initialize))
+
+
 ;; zsh
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
 
-(let ((path "~/.emacs.d"))
-(setq load-path (cons path load-path))
+;;
+;; Spelling
+;;
+(setq-default ispell-program-name "aspell")
+
+;;(let ((path "~/.emacs.d"))
+;;(setq load-path (cons path load-path))
 
 ;;;;;;;;;;;;
 ;; Graphviz
 ;;;;;;;;;;;;
-(load "graphvis-dot-mode.el"))
+(load "~/.emacs.d/graphviz-dot-mode.el")
 
 ;;;;;;;;;;;;
 ;; SCALA
@@ -136,6 +152,6 @@
   ;; If there is more than one, they won't work right.
  )
 
-(require 'slime)
-(slime-setup '(slime-repl))
+;;(require 'slime)
+;;(slime-setup '(slime-repl))
 
