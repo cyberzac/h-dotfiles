@@ -20,6 +20,7 @@ boot2docker
 coreutils
 docker
 docker-completion
+duti
 gettext
 git
 giter8
