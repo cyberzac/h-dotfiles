@@ -6,11 +6,11 @@ java6 () {
 }
 
 java7 () {
-    set_java jdk1.7.0_67
+    set_java jdk1.7.0_45
 }
 
 java8 () {                                                                                                                            
-    set_java jdk1.8.0_25
+    set_java jdk1.8.0_79
 }                                                                                                                                            
                                                                                                                                              
 set_java () {                                                                                                                                
