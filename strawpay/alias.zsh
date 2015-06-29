@@ -4,5 +4,6 @@ alias docgen-placement="(cd ~/Code/docgen; sbt run; open 'Private Placement Memo
 alias franc="ssh franc.strawpay.com $*"
 alias daler="ssh daler.strawpay.com $*"
 alias krona="ssh krona.strawpay.com $*"
+alias dollar="ssh dollar.strawpay.com $*"
 
 
