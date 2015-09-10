@@ -19,7 +19,6 @@ blueutil
 boot2docker
 coreutils
 docker
-docker-completion
 duti
 gettext
 git
@@ -36,6 +35,7 @@ protobuf
 pyqt
 python
 python3
+pwgen
 qt
 sbt
 scala
