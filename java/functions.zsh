@@ -9,14 +9,14 @@ java7 () {
     set_java jdk1.7.0_79
 }
 
-java8 () {                                                                                                                            
-    set_java jdk1.8.0_45
-}                                                                                                                                            
-                                                                                                                                             
-set_java () {                                                                                                                                
-    if [ "$JAVA_HOME" ]; then                                                                                                                
-        pathremove $JAVA_HOME/bin                                                                                                            
-    fi                                                                                                                                       
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/$1.jdk/Contents/Home                                                                  
-    pathprepend $JAVA_HOME/bin                                                                                                               
-}                                                                                                                                            
+java8 () {           
+    set_java jdk1.8.0_51
+}
+
+set_java () {
+    if [ "$JAVA_HOME" ]; then
+        pathremove $JAVA_HOME/bin
+    fi
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/$1.jdk/Contents/Home
+    pathprepend $JAVA_HOME/bin
+}
