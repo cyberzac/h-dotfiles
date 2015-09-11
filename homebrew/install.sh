@@ -16,9 +16,11 @@ fi
 read -d '' packages <<EOF 
 ansible
 blueutil
-boot2docker
 coreutils
 docker
+docker-compose
+docker-machine
+docker-swarm
 duti
 gettext
 git
