@@ -163,3 +163,6 @@ tman() {
     man "${1}" | col -b | open -f -a "TextEdit"
 }
 
+
+# added by travis gem
+[ -f /Users/zac/.travis/travis.sh ] && source /Users/zac/.travis/travis.sh
