@@ -6,5 +6,6 @@ alias daler="ssh daler.strawpay.com $*"
 alias dollar="ssh dollar.strawpay.com $*"
 alias krona="ssh krona.strawpay.com $*"
 alias mark="ssh mark.strawpay.com $*"
+alias dublon="ssh dublon.strawpay.com $*"
 
 
