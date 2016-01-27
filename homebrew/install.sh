@@ -29,6 +29,7 @@ graphviz
 grc 
 heroku-toolbelt
 jq
+leveldb
 maven
 netcat
 nmap
