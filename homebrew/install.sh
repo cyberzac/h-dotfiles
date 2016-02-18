@@ -45,7 +45,7 @@ scala
 sleepwatcher
 spark
 subversion
-tomcat
+tree
 wget
 EOF
 # Install homebrew packages
