@@ -1,0 +1,18 @@
+#!/bin/bash
+
+for product in apiwallet payment merchant stroem; do
+    for env in dev test stage prod; do
+	if [ $env = prod ]; then
+	    base=$product
+	else
+	    base=$product.$env
+	fi
+	
+	ping=$(http https://$base.strawpay.com/ping 2>/dev/null)
+	name=$(echo $ping | jq -r '.name' 2>/dev/null)
+	version=$(echo $ping | jq -r '.version' 2>/dev/null)
+	echo "$product $env $name $version"
+    done
+    echo
+done
+	
