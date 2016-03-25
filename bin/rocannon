@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Expecting the strawpayca root ca and zac@strawpay client cert and key to be in the osx keychain.
+
+~/Code/rocannon/bin/rocannon -c zac@strawpay.com $*
+
+
