@@ -28,6 +28,7 @@ giter8
 graphviz
 grc 
 heroku-toolbelt
+httpie
 jq
 leveldb
 maven
