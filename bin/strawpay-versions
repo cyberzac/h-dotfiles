@@ -1,6 +1,12 @@
 #!/bin/bash
 
-for product in apiwallet payment merchant stroem; do
+products="apiwallet payment merchant stroem"
+
+if [ $# -eq 1 ]; then
+    products=$1
+fi
+
+for product in $products; do
     for env in dev test stage prod; do
 	if [ $env = prod ]; then
 	    base=$product
