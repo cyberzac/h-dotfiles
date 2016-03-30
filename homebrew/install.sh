@@ -41,6 +41,7 @@ python
 python3
 pwgen
 qt
+s3cmd
 sbt
 scala
 sleepwatcher
