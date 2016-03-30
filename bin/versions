@@ -1,24 +1,72 @@
 #!/bin/bash
 
+usage() {
+
+    cat <<EOF
+Usage
+
+$0 [-l] [-e dev|test|stage|prod] [apiwallet] [payment] [merchant] [stroem]
+
+-e env, run only for env
+-l loop, run continuoesly 
+
+Queries for running versions.
+
+EOF
+    exit 1
+}
+
+query() {
+    for product in $products; do
+	for env in $envs; do
+	    if [ $env = prod ]; then
+		base=$product
+	    else
+		base=$product.$env
+	    fi
+	    
+	    ping=$(http https://$base.strawpay.com/ping 2>/dev/null)
+	    name=$(echo $ping | jq -r '.name' 2>/dev/null)
+	    version=$(echo $ping | jq -r '.version' 2>/dev/null)
+	    printf "%-10s %-7s %-10s %-20s\n" $product $env $name $version
+	done
+    done
+}
+
+envs="dev test stage prod"
+
+while getopts "e:l" opt; do
+    case $opt in
+	e)
+	    envs=$OPTARG
+	    ;;
+	l)
+	    loop=true
+	    ;;
+	*)
+	    usage
+    esac
+done
+
+shift $(($OPTIND-1))
+
 products="apiwallet payment merchant stroem"
 
-if [ $# -eq 1 ]; then
-    products=$1
+if [ $# -gt 0 ]; then
+    products=$*
 fi
 
-for product in $products; do
-    for env in dev test stage prod; do
-	if [ $env = prod ]; then
-	    base=$product
-	else
-	    base=$product.$env
-	fi
-	
-	ping=$(http https://$base.strawpay.com/ping 2>/dev/null)
-	name=$(echo $ping | jq -r '.name' 2>/dev/null)
-	version=$(echo $ping | jq -r '.version' 2>/dev/null)
-	echo "$product $env $name $version"
-    done
-    echo
-done
-	
+run=true
+
+while $run; do 
+    if [ -z $loop ]; then
+	query
+	run=false
+    else
+	result=$(query)
+	clear
+	echo "$result"
+	date
+    fi
+
+done    
