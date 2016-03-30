@@ -17,8 +17,8 @@ EOF
 }
 
 query() {
-    for product in $products; do
-	for env in $envs; do
+    for env in $envs; do
+	for product in $products; do
 	    if [ $env = prod ]; then
 		base=$product
 	    else
