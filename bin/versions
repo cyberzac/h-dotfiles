@@ -5,10 +5,10 @@ usage() {
     cat <<EOF
 Usage
 
-$0 [-l] [-e dev|test|stage|prod] [apiwallet] [payment] [merchant] [stroem]
+$0 [-l time] [-e dev|test|stage|prod] [apiwallet] [payment] [merchant] [stroem]
 
--e env, run only for env
--l loop, run continuoesly 
+-e env  run only for env
+-l time loop, run continuoesly, waiting time for each lap 
 
 Queries for running versions.
 
@@ -35,13 +35,13 @@ query() {
 
 envs="dev test stage prod"
 
-while getopts "e:l" opt; do
+while getopts "e:l:" opt; do
     case $opt in
 	e)
 	    envs=$OPTARG
 	    ;;
 	l)
-	    loop=true
+	    loop=$OPTARG
 	    ;;
 	*)
 	    usage
@@ -67,6 +67,7 @@ while $run; do
 	clear
 	echo "$result"
 	date
+	sleep $loop
     fi
 
 done    
