@@ -50,7 +50,7 @@ done
 
 shift $(($OPTIND-1))
 
-products="apiwallet payment merchant stroem"
+products="apiwallet payment merchant stroem www"
 
 if [ $# -gt 0 ]; then
     products=$*
