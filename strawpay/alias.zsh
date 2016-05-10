@@ -15,5 +15,5 @@ alias krona="ssh krona.strawpay.com $*"
 alias mark="ssh mark.strawpay.com $*"
 alias dublon="ssh dublon.strawpay.com $*"
 alias escudo="ssh escudo.strawpay.com $*"
-
+alias schilling="ssh schilling.strawpay.com $*"
 
