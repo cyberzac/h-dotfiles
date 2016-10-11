@@ -6,23 +6,11 @@
 alias pd='pushd'
 alias pu='pushd'
 alias po='popd'
-alias lr="ls -ltr"
+alias lr='ls -ltr'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
-alias dcommit='git svn dcommit'
-
-
-# Places
-alias idea='cd ~/Documents/IdeaProjects'
-alias dev='cd ~/dev'
-alias trl8='cd ~/Documents/IdeaProjects/trl8'
-alias omnipoet='cd ~/Documents/IdeaProjects/omnipoet'
-alias comhem=". ~/.bash_comhem;cd ~/Documents/comhem"
-alias ch=comhem
-#alias chg=". ~/.bash_comhem;cd ~/Documents/comhem/git"
-alias bitcex="cd ~/Documents/IdeaProjects/bitcex"
-alias svenska-bitcoin="java6;cd ~/Documents/IdeaProjects/svenska-bitcoin"
+alias ..='cd ..'
 
 #
 # Hosts
