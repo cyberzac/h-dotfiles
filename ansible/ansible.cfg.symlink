@@ -1,5 +1,5 @@
 
 [defaults]
 
-inventory = $HOME/Code/ansible-strawpay/hosts
+inventory = $HOME/Code/playbooks/local
 private_key_file = ~/.ssh/strawpay_digitalocean_rsa
