@@ -24,6 +24,7 @@ docker-swarm
 duti
 gettext
 git
+git-flow
 giter8
 graphviz
 grc 
