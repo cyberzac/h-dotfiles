@@ -31,6 +31,7 @@ grc
 heroku-toolbelt
 httpie
 jq
+john
 leveldb
 maven
 netcat
@@ -46,6 +47,7 @@ s3cmd
 sbt
 scala
 sleepwatcher
+socat
 spark
 subversion
 tree
