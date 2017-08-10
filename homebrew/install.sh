@@ -42,6 +42,7 @@ pyqt5
 python
 python3
 pwgen
+magic-wormhole
 qt
 s3cmd
 sbt
