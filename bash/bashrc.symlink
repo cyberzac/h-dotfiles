@@ -166,3 +166,6 @@ tman() {
 
 # added by travis gem
 [ -f /Users/zac/.travis/travis.sh ] && source /Users/zac/.travis/travis.sh
+
+# added by travis gem
+[ -f /Users/martinzachrison/.travis/travis.sh ] && source /Users/martinzachrison/.travis/travis.sh

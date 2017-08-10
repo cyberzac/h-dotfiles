@@ -10,7 +10,11 @@ java7 () {
 }
 
 java8 () {           
-    set_java jdk1.8.0_121
+    set_java jdk1.8.0_131
+}
+
+java9 () {           
+    set_java jdk-9
 }
 
 set_java () {

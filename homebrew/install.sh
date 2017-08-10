@@ -38,7 +38,7 @@ netcat
 nmap
 node
 protobuf
-pyqt
+pyqt5
 python
 python3
 pwgen
