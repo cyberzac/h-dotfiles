@@ -26,6 +26,7 @@ gettext
 git
 git-flow
 giter8
+gitup
 graphviz
 grc 
 heroku-toolbelt
