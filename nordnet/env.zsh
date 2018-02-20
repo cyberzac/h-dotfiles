@@ -1,0 +1,1 @@
+TNS_ADMIN=$HOME/.ora
