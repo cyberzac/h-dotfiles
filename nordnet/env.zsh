@@ -1,1 +1,1 @@
-TNS_ADMIN=$HOME/.ora
+export TNS_ADMIN=$HOME/.ora
