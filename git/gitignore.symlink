@@ -53,6 +53,10 @@ dependency-reduced-pom.xml
 .idea
 *.iml
 
+#
+# emaxs
+*#
+
 # Misc
 #####################
 .svn
