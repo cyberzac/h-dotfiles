@@ -13,23 +13,28 @@ then
   exit
 fi
 
+#docker
+#docker-compose
+#docker-machine
+#docker-swarm
+#duti
+#gettext
+#gitup
+#grc 
+#heroku-toolbelt
+#spark
+#subversion
+
+
 read -d '' packages <<EOF 
 ansible
+awscli
 blueutil
 coreutils
-docker
-docker-compose
-docker-machine
-docker-swarm
-duti
-gettext
 git
 git-flow
 giter8
-gitup
 graphviz
-grc 
-heroku-toolbelt
 httpie
 jq
 john
@@ -42,6 +47,7 @@ protobuf
 pyqt5
 python
 python3
+pv
 pwgen
 magic-wormhole
 qt
@@ -50,8 +56,6 @@ sbt
 scala
 sleepwatcher
 socat
-spark
-subversion
 tree
 wget
 EOF

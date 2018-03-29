@@ -28,7 +28,12 @@ query() {
 	    ping=$(http https://$base.strawpay.com/ping 2>/dev/null)
 	    name=$(echo $ping | jq -r '.name' 2>/dev/null)
 	    version=$(echo $ping | jq -r '.version' 2>/dev/null)
-	    printf "%-10s %-7s %-10s %-20s\n" $product $env $name $version
+	    if [ $product = "stroem" ]; then
+		expire=$(http https://$base.strawpay.com/api/certificate | jq -r '.valid_to' 2>/dev/null)
+		printf "%-10s %-7s %-10s %-21s %-10s\n" $product $env $name $version $expire
+	    else
+		printf "%-10s %-7s %-10s %-21s\n" $product $env $name $version
+	    fi
 	done
     done
 }
