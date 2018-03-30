@@ -1,4 +1,4 @@
 #
-# Set java8 as default
-java9
+# Set java10 as default
+java10
 
