@@ -31,6 +31,7 @@ ansible
 awscli
 blueutil
 coreutils
+fn
 git
 git-flow
 giter8
