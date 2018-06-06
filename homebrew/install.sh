@@ -37,6 +37,7 @@ git-flow
 giter8
 graphviz
 httpie
+hub
 jq
 john
 leveldb
