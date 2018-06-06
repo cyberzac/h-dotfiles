@@ -78,7 +78,7 @@
 (defcustom yaml-indent-offset 2
   "*Amount of offset per level of indentation."
   :type 'integer
-  :safe 'natnump
+;;  :safe 'natnump
   :group 'yaml)
 
 (defcustom yaml-backspace-function 'backward-delete-char-untabify
