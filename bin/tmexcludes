@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Exclude stuff from time machine backups
+
+# targets...
+sudo find ~/Code -type d -name target -exec tmutil addexclusion -p {} \;
+
+# .m2 resposistory
+for dir in .m2/repository .ivy2/cache .ivy2/local
+sudo tmutil addexclusion -p ~/.m2/reposistory
