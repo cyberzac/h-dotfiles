@@ -1,1 +1,2 @@
-export LC_ALL=sv_SE.UTF-8
+unset LC_ALL
+export LC_TIME=sv_SE.UTF-8
