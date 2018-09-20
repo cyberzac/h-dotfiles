@@ -2,15 +2,11 @@
 #  Switch java version
 
 java8 () {           
-    set_java jdk1.8.0_172
-}
-
-java9 () {           
-    set_java jdk-9.0.4
+    set_java jdk1.8.0_181
 }
 
 java10() {           
-    set_java jdk-10.0.1
+    set_java jdk-10.0.2
 }
 
 set_java () {
