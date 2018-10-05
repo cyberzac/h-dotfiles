@@ -13,6 +13,10 @@ java10() {
     set_java jdk-10.0.1
 }
 
+java11() {           
+    set_java jdk-11
+}
+
 set_java () {
     if [ "$JAVA_HOME" ]; then
         pathremove $JAVA_HOME/bin
