@@ -30,4 +30,5 @@ alias maza='ssh zac@maza.cyberzac.se $*'
 alias minecraft='ssh _minecraft@minecraft.cyberzac.se $*'
 alias pi='ssh pi@hallon.cyberzac.se $*'
 alias avalon='ssh root@10.0.1.205 $*'
+alias manager1='ssh pirate@manager1.local $*'
 
