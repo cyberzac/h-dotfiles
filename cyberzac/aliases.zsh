@@ -35,4 +35,5 @@ alias manager2='ssh pirate@manager3.local $*'
 alias manager3='ssh pirate@manager3.local $*'
 alias worker1='ssh pirate@worker1.local $*'
 alias worker2='ssh pirate@worker2.local $*'
+alias nacka='ssh pirate@nacka.cyberzac.se $*'
 
