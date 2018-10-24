@@ -40,6 +40,7 @@ httpie
 hub
 jq
 john
+kubernetes-cli
 leveldb
 maven
 netcat
