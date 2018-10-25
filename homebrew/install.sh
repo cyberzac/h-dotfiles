@@ -30,6 +30,7 @@ read -d '' packages <<EOF
 ansible
 awscli
 blueutil
+bdw-gc
 coreutils
 fn
 git
@@ -38,9 +39,11 @@ giter8
 graphviz
 httpie
 hub
+lightbend/tools/reactive-cli
 jq
 john
 kubernetes-cli
+kubernetes-helm
 leveldb
 maven
 netcat
