@@ -40,6 +40,7 @@ graphviz
 httpie
 hub
 lightbend/tools/reactive-cli
+ipfs
 jq
 john
 kubernetes-cli
