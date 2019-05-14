@@ -6,7 +6,7 @@ java8 () {
 }
 
 java11() {           
-    set_java jdk-11.0.1
+    set_java jdk-11.0.2
 }
 
 java12() {

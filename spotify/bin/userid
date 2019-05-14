@@ -1,0 +1,20 @@
+#!/bin/bash
+
+usage() {
+    cat <<EOF
+Usage:
+$(basename $0) username
+EOF
+}
+
+die() {
+    echo $1&2
+    exit 2
+}
+
+if [ $# -ne 1 ]; then
+    usage 
+    exit 1
+fi
+
+jhurl -ps services.gew1 "hm://userdata/account?username=$1" | jq .
