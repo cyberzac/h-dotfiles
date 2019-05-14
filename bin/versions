@@ -30,7 +30,7 @@ query() {
 	    version=$(echo $ping | jq -r '.version' 2>/dev/null)
 	    if [ $product = "stroem" ]; then
 		expire=$(http https://$base.strawpay.com/api/certificate | jq -r '.valid_to' 2>/dev/null)
-		printf "%-10s %-7s %-10s %-21s %-10s\n" $product $env $name $version $expire
+		printf "%-10s %-7s %-10s %-21s %-10s\n" $product $env $name $version $expires
 	    else
 		printf "%-10s %-7s %-10s %-21s\n" $product $env $name $version
 	    fi
@@ -38,7 +38,8 @@ query() {
     done
 }
 
-envs="dev test stage prod"
+#envs="dev test stage prod"
+envs="stage prod"
 
 while getopts "e:l:" opt; do
     case $opt in
