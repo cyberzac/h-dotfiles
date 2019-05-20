@@ -32,6 +32,7 @@ awscli
 blueutil
 bdw-gc
 coreutils
+dnsmasq
 fn
 git
 git-flow
@@ -47,6 +48,7 @@ kubernetes-cli
 kubernetes-helm
 leveldb
 maven
+mosquitto
 netcat
 nmap
 node
