@@ -16,6 +16,7 @@
 ;; Display line and column numbers
 (setq line-number-mode t)
 (setq column-number-mode t)
+(setq default-tab-width 4)
 
 (global-set-key "\C-c\C-w" 'backward-kill-word)
 
@@ -115,7 +116,7 @@
 ;; Yaml
 ;;
 ;;
-(load "~/.emacs.d/yaml-mode.el")
+(load "~/.emacs.d/yaml-mode/yaml-mode.el")
 ;;(add-to-list 'load-path' "~/.emacs.d/yaml-mode")
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
@@ -124,8 +125,8 @@
 ;;
 
 ;; Load the ensime lisp code...
-(add-to-list 'load-path "~/.emacs.d/ensime/elisp/")
-(require 'ensime)
+;;(add-to-list 'load-path "~/.emacs.d/ensime/elisp/")
+;;(require 'ensime)
 
 ;; This step causes the ensime-mode to be started whenever
 ;; scala-mode is started for a buffer. You may have to customize this step
