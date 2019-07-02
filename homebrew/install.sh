@@ -67,6 +67,7 @@ sleepwatcher
 socat
 tree
 wget
+websocat
 EOF
 # Install homebrew packages
 brew install $packages
