@@ -1,7 +1,7 @@
 #
 #  Switch java version
 
-java8 () {           
+java8() {           
     set_java jdk1.8.0_211
 }
 
@@ -24,3 +24,8 @@ set_java () {
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/$1.jdk/Contents/Home
     pathprepend $JAVA_HOME/bin
 }
+
+# Default to java8
+java8
+
+

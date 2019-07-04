@@ -36,6 +36,7 @@ dnsmasq
 fn
 git
 git-flow
+git-lfs
 giter8
 graphviz
 httpie
