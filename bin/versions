@@ -39,7 +39,7 @@ query() {
 }
 
 #envs="dev test stage prod"
-envs="stage prod"
+envs="prod"
 
 while getopts "e:l:" opt; do
     case $opt in
