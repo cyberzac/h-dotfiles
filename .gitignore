@@ -2,3 +2,5 @@ sublime2/User/Package\ Control.sublime-settings
 sublime2/User/Package Control.last-run
 git/gitconfig.symlink
 emacs/emacs.d.symlink/url/cache/
+ammonite/ammonite.symlink/cache
+ammonite/ammonite.symlink/history
