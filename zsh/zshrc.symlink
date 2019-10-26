@@ -51,3 +51,8 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 
 # added by travis gem
 [ -f /Users/martinzachrison/.travis/travis.sh ] && source /Users/martinzachrison/.travis/travis.sh
+
+# Brew
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi

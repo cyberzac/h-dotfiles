@@ -66,7 +66,10 @@ sbt
 scala
 sleepwatcher
 socat
+scalacenter/bloop/bloop
+terraform
 tree
+watch
 wget
 websocat
 EOF

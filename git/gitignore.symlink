@@ -64,3 +64,16 @@ dependency-reduced-pom.xml
 *.swp
 *.rbc
 *.lock
+
+### Hydra
+hydra.db
+unit-timing.csv
+.hydra
+
+###
+.bloop
+project/.bloop
+
+###
+## Eget
+**/zac-*
