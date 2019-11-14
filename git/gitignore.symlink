@@ -50,7 +50,7 @@ dependency-reduced-pom.xml
 #
 # Idea
 ####################
-.idea
+.idea/
 *.iml
 
 #
@@ -71,9 +71,9 @@ unit-timing.csv
 .hydra
 
 ###
-.bloop
-project/.bloop
+.bloop/
+project/.bloop/
 
 ###
 ## Eget
-**/zac-*
+**/zac.*
