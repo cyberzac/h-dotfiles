@@ -54,7 +54,7 @@ dependency-reduced-pom.xml
 *.iml
 
 #
-# emaxs
+# emacs
 *#
 
 # Misc
@@ -64,16 +64,21 @@ dependency-reduced-pom.xml
 *.swp
 *.rbc
 *.lock
+tmp/
 
 ### Hydra
 hydra.db
 unit-timing.csv
 .hydra
 
-###
+### bloop
 .bloop/
 project/.bloop/
 
+### Floobits
+.floo
+.flooignore
+
 ###
 ## Eget
-**/zac.*
+**/zac*
