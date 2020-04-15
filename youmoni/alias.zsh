@@ -7,5 +7,6 @@ alias kuriren="ssh kuriren34.dyndns-ip.com"
 alias ymtest="ssh manager01.test.youmoni.net"
 alias ymstage="ssh manager01.stage.youmoni.net"
 alias ymprod="ssh manager01.youmoni.net"
+alias ymmirror01="ssh mirror01.connect.youmoni.net"
 alias influxadm="ssh influxadm"
 
