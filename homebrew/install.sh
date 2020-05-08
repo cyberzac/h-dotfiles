@@ -33,6 +33,7 @@ blueutil
 bdw-gc
 coreutils
 chronograf
+dive
 dnsmasq
 fn
 git
@@ -57,6 +58,7 @@ mosquitto
 netcat
 nmap
 node
+pandoc
 protobuf
 pyqt5
 python
