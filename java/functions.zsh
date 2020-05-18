@@ -5,6 +5,10 @@ java8() {
     set_java jdk1.8.0_211
 }
 
+openjdk8() {           
+    set_java adoptopenjdk-8
+}
+
 java11() {           
     set_java jdk-11.0.4
 }
