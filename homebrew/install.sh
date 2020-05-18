@@ -36,6 +36,7 @@ chronograf
 dive
 dnsmasq
 fn
+fswatch
 git
 git-flow
 git-lfs
