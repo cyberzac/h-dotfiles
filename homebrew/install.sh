@@ -33,6 +33,7 @@ blueutil
 bdw-gc
 coreutils
 chronograf
+dialog
 dive
 dnsmasq
 fn
