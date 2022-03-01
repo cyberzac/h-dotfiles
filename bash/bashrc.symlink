@@ -170,3 +170,7 @@ tman() {
 # added by travis gem
 [ -f /Users/martinzachrison/.travis/travis.sh ] && source /Users/martinzachrison/.travis/travis.sh
 if [ -f $(brew --prefix)/etc/bash_completion ]; then source $(brew --prefix)/etc/bash_completion; fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH=/Users/zac/.local/share/fury/usr/active/bin:/Users/zac/.local/share/fury/usr/active/opt:$PATH # Added by Fury

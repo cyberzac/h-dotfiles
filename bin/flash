@@ -222,7 +222,7 @@ while true; do
   echo "Unmounting ${disk} ..."
   diskutil unmountDisk "${disk}s1"
   diskutil unmountDisk "${disk}"
-  readonlymedia=$(diskutil info "${disk}" | grep "Read-Only Media" | awk 'NF>1{print $NF}')
+  readonlymedia=$(diskutil info "${disk}" | grep "Media Read-Only" | awk 'NF>1{print $NF}')
   if [ "$readonlymedia" == "No" ]; then
     break
   else

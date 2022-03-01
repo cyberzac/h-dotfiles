@@ -1,0 +1,58 @@
+#!/bin/bash
+# publish kura payload to mqtt
+#
+
+usage() {
+    cat <<EOF
+Send a Kura encoded signal over Mqtt
+Usage $0 device component signal
+
+device	    The uid of the device
+component   spaceinventos|relays
+parameters  Json encoded paramaters
+
+Example:
+
+$0 [-u mqtt-user] [-p mqtt-password] [-e env] ytb1883c4046812 spaceinventos '[{"spaceinvento":{"buzzer":{"duration": 3000,"frequency": 440s}}]'
+
+EOF
+    exit
+}
+
+env=dev
+user=""
+password=""
+topic="signal/json"
+while getopts "e:u:P:t:" opt; do
+    case $opt in
+	e)
+	    env=$OPTARG
+	    ;;
+	u)
+	    user="-u $OPTARG"
+	    ;;
+	P)
+	    password="-P $OPTARG"
+	    ;;
+	t)
+	    topic=$OPTARG
+	    ;;
+	*)
+	    usage	    
+    esac    
+done
+
+shift $(($OPTIND-1))
+
+
+if [ $# -ne 3 ]; then
+    usage
+fi
+device=$1
+component=$2
+payload="{\"body\":\"$(echo $3| base64)\"}"
+
+mosquitto_pub -h connect.$env.youmoni.com -p 1883 $user $password -t kura/$device/$topic/$component -m $payload
+
+echo "paylod $payload"
+echo  "$3" | jq

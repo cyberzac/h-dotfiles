@@ -55,3 +55,6 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 
 # added by travis gem
 [ -f /Users/martinzachrison/.travis/travis.sh ] && source /Users/martinzachrison/.travis/travis.sh
+export PATH=/Users/zac/.local/share/fury/usr/active/bin:/Users/zac/.local/share/fury/usr/active/opt:$PATH # Added by Fury
+fpath=(/Users/zac/.local/share/fury/usr/0.18.29/script /Users/zac/.local/share/fury/usr/active/completions $fpath) # Added by Fury
+autoload -U compinit && compinit # Added by Fury

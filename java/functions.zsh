@@ -10,11 +10,15 @@ openjdk8() {
 }
 
 java11() {           
-    set_java jdk-11.0.4
+    set_java jdk-11.0.9
 }
 
 java12() {
     set_java jdk-12.0.1
+}
+
+java15() {
+    set_java jdk-15.0.1
 }
 
 graalvm8() {
@@ -29,7 +33,7 @@ set_java () {
     pathprepend $JAVA_HOME/bin
 }
 
-# Default to java8
+# Default to java11
 java11
 
 
