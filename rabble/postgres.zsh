@@ -1,2 +1,2 @@
-export PGHOST=localhost
+#export PGHOST=localhost
 

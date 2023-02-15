@@ -53,6 +53,7 @@ dependency-reduced-pom.xml
 ####################
 .idea/**
 *.iml
+.bsp
 
 #
 # emacs

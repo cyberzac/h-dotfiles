@@ -1,0 +1,94 @@
+#!/bin/bash
+# publish kura payload to mqtt
+#
+
+usage() {
+    cat <<EOF
+Send a Kura encoded admin message over mqtt
+See https://eclipse.github.io/kura/ref/mqtt-namespace.html
+    
+Usage $0 [-e env] [-u user] [-P password] [-i id] [-c client-id] [-j job-id] [-v] device app path
+
+device	    The uid of the device
+app	    CONF-V1|DEPLOY-V1|DEPLOY-V2|INVENTORY-V1
+path	    App dependent path
+
+-e env	       one of dev, test, stage, prod, defaults to dev
+-u user	       MQTT user, defaults to broker
+-P password    MQTT password
+-i id	       Request id, defaults to a generated uuid
+-c client-id   The responser.client id defaults to id
+-j job-id      The job.id defaults to unix time
+-v 	       Verbose output
+
+Environment:
+MQTT_PASSWORD	The password use to authenticate to the mqtt broker
+i
+Example:
+
+$0 -p mqtt-password ytb1883c4046812 CONF-V1 GET/configurations
+
+The response will be published on
+
+$EDC/kura/client1/CONF-V1/REPLY/id1
+
+EOF
+    exit
+}
+
+env=dev
+user="-u broker"
+password=$MQTT_PASSWORD
+id=$(uuidgen)
+client=$(hostname)
+job=$(date +%s)
+while getopts "e:u:P:f:i:c:j:v" opt; do
+    case $opt in
+	e)
+	    env=$OPTARG
+	    ;;
+	u)
+	    user="-u $OPTARG"
+	    ;;
+	f)
+	    body=$(base64 -i $OPTARG)
+	    ;;
+	P)
+	    password=$OPTARG
+	    ;;
+	i)
+	    id=$OPTARG
+	    ;;
+	c)
+	    client=$OPTARG
+	    ;;
+	j)
+	    job=$OPTARG
+	    ;;
+	v)
+	    verbose=true
+	    ;;
+	*)
+	    usage	    
+    esac    
+done
+
+shift $(($OPTIND-1))
+
+
+if [ $# -ne  3 ]; then
+    usage
+fi
+if [ $password  ]; then
+    password="-P $password"
+fi
+device=$1
+app=$2
+path=$3
+payload="{\"metrics\":{\"request.id\":\"$id\",\"requester.client.id\":\"$client\", \"job.id\":\"$job\"}, \"body\":\"$body\"}"
+mosquitto_pub -h connect.$env.youmoni.com -p 1883 $user $password -t \$EDC/kura/$device/$app/$path -m "$payload"
+if [ $verbose ]; then
+    echo  "Opertation $env \$EDC/kura/$device/$app/$path"
+    echo  "$payload" | jq
+fi
+mosquitto_sub -h connect.$env.youmoni.com -p 1883 $user $password -C 1 -t \$EDC/kura/$client/$app/REPLY/$id --pretty

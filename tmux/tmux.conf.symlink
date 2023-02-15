@@ -1,0 +1,32 @@
+
+# osx copy/past from clipboard
+# depends on brew install reattach-to-user-namespace
+set-option -g default-command "reattach-to-user-namespace -l $SHELL"
+bind-key -T copy-mode Enter send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+
+# mouse copy/paste
+set -g mouse on
+bind-key -T copy-mode MouseDragEnd1Pane send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+
+# Change prefix to C-t unbind C-b
+unbind C-b
+set-option -g prefix C-t
+bind-key C-t send-prefix
+
+# split panes using | and -
+#bind | split-window -h
+#bind - split-window -v
+#unbind '"'
+#unbind %
+
+# reload config file (change file location to your the tmux.conf you want to use)
+bind r source-file ~/.tmux.conf
+
+# switch panes using Alt-arrow without prefix
+#bind -n M-Left select-pane -L
+#bind -n M-Right select-pane -R
+#bind -n M-Up select-pane -U
+#bind -n M-Down select-pane -D
+
+# don't rename windows automatically
+set-option -g allow-rename off

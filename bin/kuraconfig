@@ -1,0 +1,112 @@
+#!/bin/bash
+
+usage() {
+    cat <<EOF
+Read and write Kura configurations
+See https://eclipse.github.io/kura/ref/mqtt-namespace.html
+    
+Usage
+$0 [-e env] [-u user] [-P password] [-i id] [-c client-id] [-j job-id] [-v] [-f file] device read [service]
+$0 [-e env] [-u user] [-P password] [-i id] [-c client-id] [-j job-id] [-v] -f file device write [service]
+
+device	    The uid of the device
+service     Optional PID of service, if not given all services will be affected
+
+-f file	       The file to read/write
+-e env	       one of dev, test, stage, prod, defaults to dev
+-u user	       MQTT user, defaults to broker
+-P password    MQTT password
+-i id	       Request id, defaults to a generated uuid
+-c client-id   The responser.client id defaults to id
+-j job-id      The job.id defaults to unix time
+-v 	       Verbose output
+
+Environment:
+
+MQTT_PASSWORD	The password use to authenticate to the mqtt broker
+
+
+Example:
+
+$0 ytb1883c4046812 read youmoni.kura.system.onewire.Owfs
+
+
+EOF
+    exit
+}
+
+env=dev
+user="broker"
+password=$MQTT_PASSWORD
+id=$(uuidgen)
+client=$(hostname)
+job=$(date +%s)
+while getopts "e:u:P:i:c:j:vf:" opt; do
+    case $opt in
+	e)
+	    env=$OPTARG
+	    ;;
+	u)
+	    user=$OPTARG
+	    ;;
+	P)
+	    password=$OPTARG
+	    ;;
+	i)
+	    id=$OPTARG
+	    ;;
+	c)
+	    client=$OPTARG
+	    ;;
+	v)
+	    verbose=-v
+	    ;;
+	f)
+	    file=$OPTARG
+	    ;;
+	*)
+	    usage	    
+    esac    
+done
+
+shift $(($OPTIND-1))
+
+
+if [ $# -eq 3 ]; then
+    service=$3
+elif [ $# -ne 2 ]; then
+    usage
+fi
+
+device=$1
+op=$2
+case $op in
+    read)
+	result=$(kuraadmin -e $env -P $password  -u $user -i $id -c $client -j $job $device CONF-V1 GET/configurations/$service)
+	code=$(echo $result|jq '.metrics."response.code"')
+	if [ $code -ne "200" ]; then
+	    echo "Kura mqtt request failed with code $code"
+	    exit 1
+	fi
+	config=$(echo $result|jq -r '.body'|base64 -d)
+	if [ "$file" ]; then
+	    echo "$config" > $file
+	else
+	    echo "$config"
+	fi
+	;;
+    write)
+	if [ -z "$file" ]; then
+	    echo "must specify file with -f flag"
+	    exit 2
+	fi
+	result=$(kuraadmin -e $env -P $password -u $user -i $id -c $client -j $job -f $file $device CONF-V1 PUT/configurations/$service)
+	code=$(echo $result|jq '.metrics."response.code"')
+	if [ $code -ne "200" ]; then
+	    echo "Kura mqtt request failed with code $code"
+	    exit 1
+	fi
+	;;
+    *)
+	usage
+esac

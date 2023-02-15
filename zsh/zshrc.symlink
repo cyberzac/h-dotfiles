@@ -57,4 +57,9 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 [ -f /Users/martinzachrison/.travis/travis.sh ] && source /Users/martinzachrison/.travis/travis.sh
 export PATH=/Users/zac/.local/share/fury/usr/active/bin:/Users/zac/.local/share/fury/usr/active/opt:$PATH # Added by Fury
 fpath=(/Users/zac/.local/share/fury/usr/0.18.29/script /Users/zac/.local/share/fury/usr/active/completions $fpath) # Added by Fury
-autoload -U compinit && compinit # Added by Fury
+
+# 1Password, op
+export OP_PLUGIN_ALIASES_SOURCED=1
+alias gh="op plugin run -- gh"
+
+source /Users/zac/.docker/init-zsh.sh || true # Added by Docker Desktop

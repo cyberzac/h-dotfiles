@@ -1,1 +1,1 @@
-alias sbt='sbt -Dsbt.repository.config=./project/repositories $*'
+#alias sbt='sbt -Dsbt.repository.config=./project/repositories $*'

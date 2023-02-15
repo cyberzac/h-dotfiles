@@ -8,15 +8,15 @@ alias lr="ls -ltr"
 alias la='ls -A'
 
 # Places
-alias idea='cd ~/Documents/IdeaProjects'
-alias dev='cd ~/dev'
-alias trl8='cd ~/Documents/IdeaProjects/trl8'
-alias omnipoet='cd ~/Documents/IdeaProjects/omnipoet'
-alias comhem=". ~/.bash_comhem;cd ~/Documents/comhem"
-alias ch=comhem
+#alias idea='cd ~/Documents/IdeaProjects'
+#alias dev='cd ~/dev'
+#alias trl8='cd ~/Documents/IdeaProjects/trl8'
+#alias omnipoet='cd ~/Documents/IdeaProjects/omnipoet'
+#alias comhem=". ~/.bash_comhem;cd ~/Documents/comhem"
+#alias ch=comhem
 #alias chg=". ~/.bash_comhem;cd ~/Documents/comhem/git"
-alias bitcex="cd ~/Documents/IdeaProjects/bitcex"
-alias svenska-bitcoin="java6;cd ~/Documents/IdeaProjects/svenska-bitcoin"
+#alias bitcex="cd ~/Documents/IdeaProjects/bitcex"
+#alias svenska-bitcoin="java6;cd ~/Documents/IdeaProjects/svenska-bitcoin"
 
 #
 # Hosts
