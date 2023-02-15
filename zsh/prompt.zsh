@@ -79,7 +79,16 @@ directory_name(){
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+docker_context(){
+    ctx=$(docker context show)
+    if [ $ctx = "default" ]; then
+	echo ""
+    else
+	echo "docker %{$fg_bold[green]%}$ctx%{$reset_color%}"
+    fi
+}
+
+export PROMPT=$'\n$(rb_prompt)$(directory_name) $(git_dirty)$(need_push)$(docker_context)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
 }
