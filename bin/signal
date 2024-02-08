@@ -13,20 +13,21 @@ parameters  Json encoded paramaters
 
 Example:
 
-$0 [-u mqtt-user] [-p mqtt-password] [-e env] ytb1883c4046812 spaceinventos '[{"spaceinvento":{"buzzer":{"duration": 3000,"frequency": 440s}}]'
+$0 [-u mqtt-user] [-P mqtt-password] [-e env] ytb1883c4046812 spaceinventos '[{"spaceinvento":{"buzzer":{"duration": 3000,"frequency": 440s}}]'
 
 EOF
     exit
 }
 
 env=dev
-user=""
+user="broker"
 password=""
 topic="signal/json"
-while getopts "e:u:P:t:" opt; do
+while getopts "e:u:P:t:h:" opt; do
     case $opt in
 	e)
 	    env=$OPTARG
+	    host=connect.$OPTARG.youmoni.com
 	    ;;
 	u)
 	    user="-u $OPTARG"
@@ -36,6 +37,9 @@ while getopts "e:u:P:t:" opt; do
 	    ;;
 	t)
 	    topic=$OPTARG
+	    ;;
+	h)
+	    host=$OPTARG
 	    ;;
 	*)
 	    usage	    
@@ -52,7 +56,7 @@ device=$1
 component=$2
 payload="{\"body\":\"$(echo $3| base64)\"}"
 
-mosquitto_pub -h connect.$env.youmoni.com -p 1883 $user $password -t kura/$device/$topic/$component -m $payload
+mosquitto_pub -h $host -p 1883 $user $password -t kura/$device/$topic/$component -m $payload
 
 echo "paylod $payload"
 echo  "$3" | jq

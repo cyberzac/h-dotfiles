@@ -63,3 +63,6 @@ export OP_PLUGIN_ALIASES_SOURCED=1
 alias gh="op plugin run -- gh"
 
 source /Users/zac/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+# GitHub
+export GITHUB_TOKEN="op://Private/Github token/password"

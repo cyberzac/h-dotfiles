@@ -13,8 +13,20 @@ java17() {
     set_java jdk-17.0.2.jdk
 }
 
+java19() {
+    set_java jdk-19.0.1.jdk
+}
+
+java20() {
+    set_java jdk-20.0.2.jdk
+}
+
+java21() {
+    set_java jdk-21.jdk
+}
+
 graalvm() {
-    set_java  graalvm-ee-java19-22.3.0
+    set_java  graalvm-jdk-21+35.1
 }
 
 set_java () {

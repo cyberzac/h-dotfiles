@@ -30,3 +30,6 @@ bind r source-file ~/.tmux.conf
 
 # don't rename windows automatically
 set-option -g allow-rename off
+
+# History buffer
+set-option -g history-limit 20000
