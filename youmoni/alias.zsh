@@ -1,4 +1,5 @@
 alias ymdev="ssh kuriren34.dyndns-ip.com"
+alias ymdevx="ssh -p 28 kuriren34.dyndns-ip.com"
 alias ymdev01="ssh kuriren34.dyndns-ip.com"
 alias ymdev02="ssh -p 24 kuriren34.dyndns-ip.com"
 alias ymlab="ssh -p 24 kuriren34.dyndns-ip.com"
