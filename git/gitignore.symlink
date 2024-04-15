@@ -85,6 +85,9 @@ project/.bloop/
 .floo
 .flooignore
 
+### onepassword
+.op/
+
 ###
 ## Eget
 **/zac*
