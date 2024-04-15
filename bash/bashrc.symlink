@@ -176,3 +176,4 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=/Users/zac/.local/share/fury/usr/active/bin:/Users/zac/.local/share/fury/usr/active/opt:$PATH # Added by Fury
 
 source /Users/zac/.docker/init-bash.sh || true # Added by Docker Desktop
+. "$HOME/.cargo/env"
